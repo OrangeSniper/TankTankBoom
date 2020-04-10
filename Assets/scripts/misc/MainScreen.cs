@@ -20,6 +20,11 @@ public class MainScreen : MonoBehaviour
         }
     }
 
+    public void Credits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
     public void Quit()
     {
         Application.Quit();
