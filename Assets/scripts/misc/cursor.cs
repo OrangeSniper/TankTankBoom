@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class cursor : MonoBehaviour
 {
+    public Camera cam;
     // Update is called once per frame
     void Update()
     {
-        transform.position = 
+        transform.position = cam.ScreenToWorldPoint(Input.mousePosition); ;
     }
 }

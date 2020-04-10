@@ -15,7 +15,7 @@ public class confiner : MonoBehaviour
     }
     public void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.name == "Player")
+        if(collision.name == "cursorObject")
         {
             for (int i = 0; i < brains.Length; i++)
             {
