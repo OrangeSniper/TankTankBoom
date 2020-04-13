@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Dissolve : MonoBehaviour
 {
-    Material material;
+    private Material material;
 
     public bool isDissolving = false;
-    float fade = 1f;
+    private float fade = 1f;
 
     private void Start()
     {
@@ -16,10 +14,10 @@ public class Dissolve : MonoBehaviour
 
     private void Update()
     {
-        if(isDissolving)
+        if (isDissolving)
         {
             fade -= Time.deltaTime;
-            if(fade <= 0f)
+            if (fade <= 0f)
             {
                 fade = 0f;
                 isDissolving = false;

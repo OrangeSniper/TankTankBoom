@@ -1,15 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using CodeMonkey.Utils;
+﻿using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
 {
-    [SerializeField]private LayerMask layerMask;
+    [SerializeField] private LayerMask layerMask;
     private Mesh mesh;
-    float fov;
-    Vector3 origin;
-    float startingAngle;
+    private float fov;
+    private Vector3 origin;
+    private float startingAngle;
+
     private void Start()
     {
         mesh = new Mesh();
@@ -18,8 +16,6 @@ public class FieldOfView : MonoBehaviour
         origin = Vector3.zero;
     }
 
-
-    
     private void LateUpdate()
     {
         mesh.bounds = new Bounds(origin, Vector3.one * 10000000f);
@@ -28,7 +24,6 @@ public class FieldOfView : MonoBehaviour
         float angle = startingAngle;
         float angleIncrease = fov / raycount;
         float veiwDistance = 10f;
-
 
         Vector3[] vertices = new Vector3[raycount + 1 + 1];
         Vector2[] uv = new Vector2[vertices.Length];
@@ -40,8 +35,6 @@ public class FieldOfView : MonoBehaviour
         int TriangleIndex = 0;
         for (int i = 0; i <= raycount; i++)
         {
-            
-
             Vector3 vertex;
             RaycastHit2D raycastHit2D = Physics2D.Raycast(origin, AngleToVector(angle), veiwDistance, layerMask);
             if (raycastHit2D.collider == null)
@@ -70,8 +63,6 @@ public class FieldOfView : MonoBehaviour
         mesh.vertices = vertices;
         mesh.uv = uv;
         mesh.triangles = triangles;
-        
-        
     }
 
     public Vector3 AngleToVector(float angle)
@@ -84,7 +75,7 @@ public class FieldOfView : MonoBehaviour
     {
         dir = dir.normalized;
         float n = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        if(n < 0)
+        if (n < 0)
         {
             n += 360;
         }
@@ -95,9 +86,10 @@ public class FieldOfView : MonoBehaviour
     {
         this.origin = origin;
     }
+
     public void SetAimDirection(Vector3 aimDir)
     {
-        startingAngle = (VectorToAngle(aimDir) - fov / 2f) +90f;
+        startingAngle = (VectorToAngle(aimDir) - fov / 2f) + 90f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

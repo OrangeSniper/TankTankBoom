@@ -9,10 +9,10 @@ public class MainScreen : MonoBehaviour
         StartCoroutine(LoadAsync());
     }
 
-    IEnumerator LoadAsync()
+    private IEnumerator LoadAsync()
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync("MainGame");
-        while(operation.isDone == false)
+        while (operation.isDone == false)
         {
             Debug.Log(operation.progress);
 

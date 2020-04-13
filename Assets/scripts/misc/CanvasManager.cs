@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour
 {
     public GameObject player;
+
     public Text hpAmmo;
     public Text enemies;
 
@@ -18,9 +17,9 @@ public class CanvasManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        hpAmmo.text = "HP:" + player.GetComponent<BulletGo>().HP + " Ammo:" + player.GetComponent<BulletGo>().ammo;
+        hpAmmo.text = "HP:" + player.GetComponent<BulletGo>().unitInfo.HP + " Ammo:" + player.GetComponent<BulletGo>().ammo;
         currentEnemies = GameObject.FindGameObjectsWithTag("enemy").Length;
         enemies.text = "Enemies left: " + currentEnemies + "/" + maxEnemies;
     }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class bulletInteract : MonoBehaviour
 {
@@ -8,16 +6,17 @@ public class bulletInteract : MonoBehaviour
 
     public int damage;
 
-    PlayerMov player;
+    private PlayerMov player;
 
     private void Start()
     {
         player = GameObject.Find("Player").GetComponent<PlayerMov>();
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-        if(collision.collider.CompareTag("enemy"))
+        if (collision.collider.CompareTag("enemy"))
         {
             collision.collider.GetComponent<EnemyHP>().Damage(damage);
         }

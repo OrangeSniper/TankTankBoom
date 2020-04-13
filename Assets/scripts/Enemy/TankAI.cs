@@ -1,24 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Pathfinding;
+using System.Collections;
 using UnityEngine;
-using Pathfinding;
 
 public class TankAI : MonoBehaviour
 {
-
     public GameObject target;
 
-    public float speed = 200f;
     public float nextWaypointDistance = 3f;
 
     public Transform enemyGFX;
 
-    Path path;
-    int currentWayPoint = 0;
-    bool reachedEnd = false;
+    public Unit unitInfo;
 
-    Seeker seeker;
-    Rigidbody2D rb;
+    private Path path;
+    private int currentWayPoint = 0;
+    private bool reachedEnd = false;
+
+    private Seeker seeker;
+    private Rigidbody2D rb;
 
     public float dist;
     public float seekDis;
@@ -41,8 +40,9 @@ public class TankAI : MonoBehaviour
     public float firingRadius = 5f;
 
     public bool isFiring = false;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
@@ -57,7 +57,7 @@ public class TankAI : MonoBehaviour
         targetInRange = dist <= seekDis;
     }
 
-    void UpdatePath()
+    private void UpdatePath()
     {
         if (seeker.IsDone())
         {
@@ -73,7 +73,6 @@ public class TankAI : MonoBehaviour
                     source.Play();
                     sourcePlayed = true;
                 }
-
             }
             else if (nullifier == false)
             {
@@ -88,11 +87,10 @@ public class TankAI : MonoBehaviour
             {
                 sourcePlayed = false;
             }
-
         }
     }
 
-    Vector2 PickRandomPoint()
+    private Vector2 PickRandomPoint()
     {
         var point = UnityEngine.Random.insideUnitCircle * radius;
         point += rb.position;
@@ -109,12 +107,12 @@ public class TankAI : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         Chase();
     }
 
-    void Chase()
+    private void Chase()
     {
         if (path == null)
         {
@@ -131,7 +129,7 @@ public class TankAI : MonoBehaviour
         }
 
         Vector2 direction = ((Vector2)path.vectorPath[currentWayPoint] - rb.position).normalized;
-        Vector2 force = direction * speed * Time.fixedDeltaTime;
+        Vector2 force = direction * unitInfo.speed * Time.fixedDeltaTime;
         Vector2 dir = (rb.position - (Vector2)path.vectorPath[currentWayPoint]);
         Vector2 dir2 = (rb.position - (Vector2)target.transform.position);
 
@@ -140,34 +138,30 @@ public class TankAI : MonoBehaviour
         if (dist > firingRadius)
         {
             rb.AddForce(force);
-        }else
+        }
+        else
         {
             rb.rotation = Mathf.Atan2(dir2.y, dir2.x) * Mathf.Rad2Deg;
-            if(!isFiring)
+            if (!isFiring)
             {
                 StartCoroutine(fire());
             }
         }
 
-
-
         if (distance < nextWaypointDistance)
         {
             currentWayPoint++;
         }
-        if(dist > firingRadius)
+        if (dist > firingRadius)
         {
             rb.rotation = Mathf.Lerp(rb.rotation, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg, rotationSPD);
         }
     }
 
-    IEnumerator fire()
+    private IEnumerator fire()
     {
-
-
         shoot.Fire();
         isFiring = true;
-
 
         yield return new WaitForSeconds(fireSPD);
         isFiring = false;

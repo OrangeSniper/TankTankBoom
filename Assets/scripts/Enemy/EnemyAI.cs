@@ -1,12 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Pathfinding;
 using UnityEngine;
-using Pathfinding;
-using System;
 
 public class EnemyAI : MonoBehaviour
 {
-
     public GameObject target;
 
     public float speed = 200f;
@@ -14,12 +10,12 @@ public class EnemyAI : MonoBehaviour
 
     public Transform enemyGFX;
 
-    Path path;
-    int currentWayPoint = 0;
-    bool reachedEnd = false;
+    private Path path;
+    private int currentWayPoint = 0;
+    private bool reachedEnd = false;
 
-    Seeker seeker;
-    Rigidbody2D rb;
+    private Seeker seeker;
+    private Rigidbody2D rb;
 
     public float dist;
     public float seekDis;
@@ -35,8 +31,9 @@ public class EnemyAI : MonoBehaviour
     public bool sourcePlayed = false;
 
     public float radius = 20f;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
@@ -51,29 +48,29 @@ public class EnemyAI : MonoBehaviour
         targetInRange = dist <= seekDis;
     }
 
-    void UpdatePath()
+    private void UpdatePath()
     {
-        if(seeker.IsDone())
+        if (seeker.IsDone())
         {
-            if(targetInRange || target == null)
+            if (targetInRange || target == null)
             {
-                if(reachedEnd)
+                if (reachedEnd)
                 {
                     path = null;
                 }
                 seeker.StartPath(rb.position, target.transform.position, OnPathComplete);
-                if(!sourcePlayed)
+                if (!sourcePlayed)
                 {
                     source.Play();
                     sourcePlayed = true;
                 }
-                
-            }else if(nullifier == false)
+            }
+            else if (nullifier == false)
             {
                 seeker.StartPath(rb.position, PickRandomPoint(), OnPathComplete);
                 nullifier = true;
             }
-            if(reachedEnd)
+            if (reachedEnd)
             {
                 nullifier = false;
             }
@@ -81,20 +78,19 @@ public class EnemyAI : MonoBehaviour
             {
                 sourcePlayed = false;
             }
-
         }
     }
 
-    Vector2 PickRandomPoint()
+    private Vector2 PickRandomPoint()
     {
         var point = UnityEngine.Random.insideUnitCircle * radius;
         point += rb.position;
         return point;
     }
 
-    private void OnPathComplete( Path p) 
+    private void OnPathComplete(Path p)
     {
-        if(!p.error)
+        if (!p.error)
         {
             path = p;
             currentWayPoint = 0;
@@ -102,12 +98,12 @@ public class EnemyAI : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         Chase();
     }
 
-    void Chase()
+    private void Chase()
     {
         if (path == null)
         {
@@ -137,5 +133,4 @@ public class EnemyAI : MonoBehaviour
         }
         rb.rotation = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
     }
-
 }

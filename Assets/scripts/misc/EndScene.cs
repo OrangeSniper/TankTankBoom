@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Animations;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class EndScene : MonoBehaviour
@@ -11,7 +8,7 @@ public class EndScene : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             SceneManager.LoadScene("Title");
         }

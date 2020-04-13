@@ -1,42 +1,39 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMov : MonoBehaviour
 {
-    public float moveSPD = 5;
     private float currentSPD;
     public Rigidbody2D rb;
     public Vector2 move;
     public Camera cam;
-    Vector2 mousePos;
+    private Vector2 mousePos;
     public float angRad;
-
+    private BulletGo player;
 
     public float money;
 
     public int maxEnemies;
     public int enemies;
 
-    private void Start()
+    private void Awake()
     {
         maxEnemies = GameObject.FindGameObjectsWithTag("enemy").Length;
+        player = GetComponent<BulletGo>();
     }
 
-
-
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         enemies = GameObject.FindGameObjectsWithTag("enemy").Length;
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         angRad = rb.rotation * Mathf.Deg2Rad;
-        if(Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-            currentSPD = -moveSPD;
-        }else
+            currentSPD = -player.unitInfo.speed;
+        }
+        else
         {
-            currentSPD = moveSPD;
+            currentSPD = player.unitInfo.speed;
         }
     }
 
@@ -46,7 +43,7 @@ public class PlayerMov : MonoBehaviour
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
         rb.rotation = angle;
         move = AngMag(angRad, currentSPD);
-        if(Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKey(KeyCode.Mouse0))
         {
             rb.MovePosition(move + rb.position);
         }

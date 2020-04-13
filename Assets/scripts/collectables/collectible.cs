@@ -1,12 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class collectible : MonoBehaviour
 {
     public int ammo;
     public int health;
-
 
     private void Awake()
     {

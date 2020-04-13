@@ -69,7 +69,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336012c5695b2b94f8406b3bab4ee0ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSPD: 5
   rb: {fileID: 6583523473403741126}
   move: {x: 0, y: 0}
   cam: {fileID: 0}
@@ -122,7 +121,10 @@ MonoBehaviour:
   bulletforce: 20
   shootTime: 0.1
   ammo: 500
-  HP: 10
+  unitInfo:
+    team: 0
+    HP: 10
+    speed: 1000
 --- !u!1 &6583523473612954705
 GameObject:
   m_ObjectHideFlags: 0

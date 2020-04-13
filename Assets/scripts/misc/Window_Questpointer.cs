@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using CodeMonkey.Utils;
 using UnityEngine;
-using CodeMonkey.Utils;
 using UnityEngine.UI;
 
 public class Window_Questpointer : MonoBehaviour
@@ -24,22 +22,21 @@ public class Window_Questpointer : MonoBehaviour
 
     private void Update()
     {
-
         float bordersize = 100f;
         Vector3 targetPosScreenPoint = Camera.main.WorldToScreenPoint(targetpos);
         bool isOffScreen = targetPosScreenPoint.x <= bordersize || targetPosScreenPoint.x >= Screen.width - bordersize || targetPosScreenPoint.y <= bordersize || targetPosScreenPoint.y >= Screen.height - bordersize;
         Debug.Log(isOffScreen + " " + targetPosScreenPoint);
 
-        if(isOffScreen)
+        if (isOffScreen)
         {
             RotatePointerTagretPosition();
             pointerImage.sprite = arrow;
             Vector3 cappedTargetSrcPos = targetPosScreenPoint;
-            if(cappedTargetSrcPos.x <= bordersize)
+            if (cappedTargetSrcPos.x <= bordersize)
             {
                 cappedTargetSrcPos.x = bordersize;
             }
-            if(cappedTargetSrcPos.x >= Screen.width - bordersize)
+            if (cappedTargetSrcPos.x >= Screen.width - bordersize)
             {
                 cappedTargetSrcPos.x = Screen.width - bordersize;
             }
@@ -54,7 +51,8 @@ public class Window_Questpointer : MonoBehaviour
             Vector3 pointerWorldPos = uiCamera.ScreenToWorldPoint(cappedTargetSrcPos);
             pointer.position = pointerWorldPos;
             pointer.localPosition = new Vector3(pointer.localPosition.x, pointer.localPosition.y, 0f);
-        }else
+        }
+        else
         {
             pointerImage.sprite = cross;
             Vector3 pointerWorldPos = uiCamera.ScreenToWorldPoint(targetPosScreenPoint);

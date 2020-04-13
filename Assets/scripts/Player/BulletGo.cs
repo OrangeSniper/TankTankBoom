@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
 public class BulletGo : MonoBehaviour
@@ -16,17 +14,17 @@ public class BulletGo : MonoBehaviour
 
     public int ammo;
 
-    public int HP = 10;
+    public Unit unitInfo;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if( ableToShoot == true &&  Input.GetKey(KeyCode.Space) && ammo >0)
+        if (ableToShoot == true && Input.GetKey(KeyCode.Space) && ammo > 0)
         {
             Shoot();
         }
         StartCoroutine(ShootTime());
-        if(HP <= 0)
+        if (unitInfo.HP <= 0)
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
             Destroy(deathEffect, 5f);
@@ -36,15 +34,15 @@ public class BulletGo : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject boolet =  Instantiate(bullet, fp.position, fp.rotation);
-        Rigidbody2D rb =  boolet.GetComponent<Rigidbody2D>();
+        GameObject boolet = Instantiate(bullet, fp.position, fp.rotation);
+        Rigidbody2D rb = boolet.GetComponent<Rigidbody2D>();
         rb.AddForce(fp.up * bulletforce, ForceMode2D.Impulse);
         ammo -= 1;
     }
 
-    IEnumerator ShootTime()
+    private IEnumerator ShootTime()
     {
-        if(ableToShoot == true && Input.GetKey(KeyCode.Space))
+        if (ableToShoot == true && Input.GetKey(KeyCode.Space))
         {
             ableToShoot = false;
             yield return new WaitForSeconds(shootTime);
@@ -59,6 +57,6 @@ public class BulletGo : MonoBehaviour
 
     public void Damage(int damage)
     {
-        HP -= damage;
+        unitInfo.HP -= damage;
     }
 }

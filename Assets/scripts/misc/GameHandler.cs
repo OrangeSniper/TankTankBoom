@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using CodeMonkey.Utils;
+﻿using UnityEngine;
 
 public class GameHandler : MonoBehaviour
 {
@@ -19,14 +16,13 @@ public class GameHandler : MonoBehaviour
     public float lootLeastDist;
     public int closestLoot;
 
-
     private void Update()
     {
         EnemyPoint();
         LootPoint();
     }
 
-    void EnemyPoint()
+    private void EnemyPoint()
     {
         enemies = masterEnemy.GetComponentsInChildren<Transform>();
         for (int i = 0; i < enemies.Length; i++)
@@ -53,19 +49,21 @@ public class GameHandler : MonoBehaviour
         }
     }
 
-    void LootPoint()
+    private void LootPoint()
     {
         loot = masterLoot.GetComponentsInChildren<Transform>();
-        for(int i = 0; i < loot.Length; i++)
+        for (int i = 0; i < loot.Length; i++)
         {
-            if(i == 1)
+            if (i == 1)
             {
                 lootLeastDist = Vector2.Distance(player.position, loot[1].position);
                 closestLoot = i;
-            }else if(loot.Length <= 1)
+            }
+            else if (loot.Length <= 1)
             {
                 return;
-            }else if(Vector2.Distance(player.position, loot[i].position) < lootLeastDist)
+            }
+            else if (Vector2.Distance(player.position, loot[i].position) < lootLeastDist)
             {
                 lootLeastDist = Vector2.Distance(player.position, loot[i].position);
                 closestLoot = i;

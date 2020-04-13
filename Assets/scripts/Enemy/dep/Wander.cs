@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Pathfinding;
 using UnityEngine;
-using Pathfinding;
 
 public class Wander : MonoBehaviour
 {
@@ -11,17 +9,18 @@ public class Wander : MonoBehaviour
     public AIDestinationSetter destSet;
     public Seeker seeker;
     public AIPath aiPath;
-    IAstarAI ai;
+    private IAstarAI ai;
 
     public bool Nullifier = false;
     public bool Null2 = false;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         ai = GetComponent<IAstarAI>();
     }
 
-    Vector3 PickRandomPoint()
+    private Vector3 PickRandomPoint()
     {
         var point = Random.insideUnitCircle * radius;
 
@@ -30,20 +29,20 @@ public class Wander : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         destSet.target = GameObject.Find("Player").transform;
-        if(Vector2.Distance(ai.position, GameObject.Find("Player").transform.position) > scanDist)
+        if (Vector2.Distance(ai.position, GameObject.Find("Player").transform.position) > scanDist)
         {
             destSet.target = null;
-            
+
             destSet.enabled = false;
-            if(destSet.enabled == false && Nullifier == false)
+            if (destSet.enabled == false && Nullifier == false)
             {
                 ai.SetPath(null);
                 Nullifier = true;
             }
-            if(!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath))
+            if (!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath))
             {
                 ai.destination = PickRandomPoint();
                 ai.SearchPath();
