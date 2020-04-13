@@ -12,7 +12,7 @@ using TP = System.Type;
 
 namespace Pathfinding.WindowsStore
 {
-	public static class WindowsStoreCompatibility
+    public static class WindowsStoreCompatibility
     {
         public static System.Type GetTypeFromInfo(TP type)
         {
