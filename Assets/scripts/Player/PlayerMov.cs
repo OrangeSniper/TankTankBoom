@@ -10,6 +10,7 @@ public class PlayerMov : MonoBehaviour
     public float angRad;
     private BulletGo player;
 
+
     public float money;
 
     public int maxEnemies;
@@ -29,11 +30,11 @@ public class PlayerMov : MonoBehaviour
         angRad = rb.rotation * Mathf.Deg2Rad;
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            currentSPD = -player.unitInfo.speed;
+            currentSPD = -player.unitInfo.speed *1000;
         }
         else
         {
-            currentSPD = player.unitInfo.speed;
+            currentSPD = player.unitInfo.speed *1000;
         }
     }
 

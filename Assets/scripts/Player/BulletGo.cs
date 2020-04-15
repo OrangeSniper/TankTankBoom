@@ -16,6 +16,11 @@ public class BulletGo : MonoBehaviour
 
     public Unit unitInfo;
 
+    private void Start()
+    {
+        unitInfo.InitStats();
+    }
+
     // Update is called once per frame
     private void Update()
     {
@@ -30,11 +35,13 @@ public class BulletGo : MonoBehaviour
             Destroy(deathEffect, 5f);
             Destroy(gameObject);
         }
+        unitInfo.UpdateStats();
     }
 
     private void Shoot()
     {
         GameObject boolet = Instantiate(bullet, fp.position, fp.rotation);
+        boolet.GetComponent<bulletInteract>().damage = unitInfo.attack;
         Rigidbody2D rb = boolet.GetComponent<Rigidbody2D>();
         rb.AddForce(fp.up * bulletforce, ForceMode2D.Impulse);
         ammo -= 1;
@@ -53,10 +60,5 @@ public class BulletGo : MonoBehaviour
     public void AddAmmo(int addedAmmo)
     {
         ammo += addedAmmo;
-    }
-
-    public void Damage(int damage)
-    {
-        unitInfo.HP -= damage;
     }
 }

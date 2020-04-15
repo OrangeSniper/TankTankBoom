@@ -11,7 +11,7 @@ public class EnemyBulletInteract : MonoBehaviour
         GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
         if (collision.collider.CompareTag("Player"))
         {
-            collision.collider.GetComponent<BulletGo>().Damage(damage);
+            collision.collider.GetComponent<BulletGo>().unitInfo.Damage(damage);
         }
         Destroy(effect, 5f);
         Destroy(gameObject);

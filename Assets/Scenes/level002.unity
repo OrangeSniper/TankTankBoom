@@ -524,6 +524,36 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1139470383}
+    - target: {fileID: 6583523473403741129, guid: 7b397b78d3ae26442b759186ed2daa0b,
+        type: 3}
+      propertyPath: unitInfo.versatillity
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583523473403741129, guid: 7b397b78d3ae26442b759186ed2daa0b,
+        type: 3}
+      propertyPath: unitInfo.attack
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583523473403741129, guid: 7b397b78d3ae26442b759186ed2daa0b,
+        type: 3}
+      propertyPath: unitInfo.defense
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583523473403741129, guid: 7b397b78d3ae26442b759186ed2daa0b,
+        type: 3}
+      propertyPath: unitInfo.support
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583523473403741129, guid: 7b397b78d3ae26442b759186ed2daa0b,
+        type: 3}
+      propertyPath: unitInfo.ralley
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583523473403741129, guid: 7b397b78d3ae26442b759186ed2daa0b,
+        type: 3}
+      propertyPath: unitInfo.shield
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b397b78d3ae26442b759186ed2daa0b, type: 3}
 --- !u!1001 &217918138
@@ -2516,6 +2546,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5750708253963002703, guid: 552d962cbcb63ac42850ba4bb80dcbf1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 552d962cbcb63ac42850ba4bb80dcbf1, type: 3}
 --- !u!1001 &1627162498
@@ -2590,6 +2625,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank
       objectReference: {fileID: 0}
+    - target: {fileID: 5750708253963002703, guid: 552d962cbcb63ac42850ba4bb80dcbf1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 552d962cbcb63ac42850ba4bb80dcbf1, type: 3}
 --- !u!1 &1637148447
@@ -2607,7 +2647,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1637148448
 Transform:
   m_ObjectHideFlags: 0
@@ -2703,6 +2743,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5750708253963002703, guid: 552d962cbcb63ac42850ba4bb80dcbf1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 552d962cbcb63ac42850ba4bb80dcbf1, type: 3}
 --- !u!1001 &1741567109
@@ -2776,6 +2821,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tank (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5750708253963002703, guid: 552d962cbcb63ac42850ba4bb80dcbf1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 552d962cbcb63ac42850ba4bb80dcbf1, type: 3}

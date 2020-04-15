@@ -25,7 +25,7 @@ public class EnemyHP : MonoBehaviour
     {
         if (collision.collider.CompareTag("Player"))
         {
-            collision.collider.GetComponent<BulletGo>().Damage(damage);
+            collision.collider.GetComponent<BulletGo>().unitInfo.Damage(damage);
             yield return new WaitForSeconds(wait);
         }
     }
