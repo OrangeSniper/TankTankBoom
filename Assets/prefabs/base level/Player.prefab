@@ -123,14 +123,16 @@ MonoBehaviour:
   ammo: 500
   unitInfo:
     team: 0
-    attack: 15
-    defense: 42
-    support: 11
+    attack: 10
+    defense: 10
+    support: 10
     versatillity: 0
     ralley: 0
     shield: 0
     HP: 100
     speed: 5
+    timeUntilHeal: 100
+    timeLeftUntilHeal: 0
 --- !u!1 &6583523473612954705
 GameObject:
   m_ObjectHideFlags: 0

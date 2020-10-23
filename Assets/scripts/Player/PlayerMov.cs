@@ -49,6 +49,17 @@ public class PlayerMov : MonoBehaviour
             rb.MovePosition(move + rb.position);
             Debug.Log(move);
         }
+        player.unitInfo.timeLeftUntilHeal -= 1;
+
+        if(player.unitInfo.timeLeftUntilHeal <= 0)
+        {
+            player.unitInfo.timeLeftUntilHeal = 0;
+            player.unitInfo.HP += player.unitInfo.support;
+        }
+        if(player.unitInfo.HP > player.unitInfo.defense)
+        {
+            player.unitInfo.HP = player.unitInfo.defense;
+        }
     }
 
     public Vector2 AngMag(float angle, float magnitude)

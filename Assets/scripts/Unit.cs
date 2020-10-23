@@ -19,11 +19,15 @@ public class Unit
 
     public int HP;
 
-    public int speed;
+    public float speed;
+
+    public float timeUntilHeal;
+    public float timeLeftUntilHeal;
 
     public void Damage(int Damage)
     {
         HP -= Damage;
+        timeLeftUntilHeal = timeUntilHeal;
     }
 
     public void InitStats()
@@ -36,6 +40,6 @@ public class Unit
         versatillity = (attack + defense) / 2;
         ralley = (attack + support) / 2;
         shield = (defense + support) / 2;
-        speed = versatillity / 5;
+        speed = versatillity;
     }
 }

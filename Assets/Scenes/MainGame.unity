@@ -31622,11 +31622,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6583523473403741126, guid: 7b397b78d3ae26442b759186ed2daa0b,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6583523473403741127, guid: 7b397b78d3ae26442b759186ed2daa0b,
         type: 3}
       propertyPath: cam
@@ -31634,8 +31629,18 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 6583523473403741129, guid: 7b397b78d3ae26442b759186ed2daa0b,
         type: 3}
-      propertyPath: unitInfo.team
-      value: 0
+      propertyPath: unitInfo.support
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583523473403741129, guid: 7b397b78d3ae26442b759186ed2daa0b,
+        type: 3}
+      propertyPath: unitInfo.defense
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583523473403741129, guid: 7b397b78d3ae26442b759186ed2daa0b,
+        type: 3}
+      propertyPath: unitInfo.attack
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b397b78d3ae26442b759186ed2daa0b, type: 3}
