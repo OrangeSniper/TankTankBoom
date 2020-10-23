@@ -30,23 +30,24 @@ public class PlayerMov : MonoBehaviour
         angRad = rb.rotation * Mathf.Deg2Rad;
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            currentSPD = -player.unitInfo.speed *1000;
+            currentSPD = -player.unitInfo.speed;
         }
         else
         {
-            currentSPD = player.unitInfo.speed *1000;
+            currentSPD = player.unitInfo.speed;
         }
     }
 
     private void FixedUpdate()
     {
         Vector2 lookDir = mousePos - rb.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
-        rb.rotation = angle;
+        angRad = Mathf.Atan2(lookDir.y, lookDir.x);
+        rb.rotation = angRad * Mathf.Rad2Deg;
         move = AngMag(angRad, currentSPD);
         if (Input.GetKey(KeyCode.Mouse0))
         {
             rb.MovePosition(move + rb.position);
+            Debug.Log(move);
         }
     }
 

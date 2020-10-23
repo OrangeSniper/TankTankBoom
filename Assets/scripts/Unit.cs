@@ -36,6 +36,6 @@ public class Unit
         versatillity = (attack + defense) / 2;
         ralley = (attack + support) / 2;
         shield = (defense + support) / 2;
-        speed = versatillity * 1000000;
+        speed = versatillity / 5;
     }
 }
