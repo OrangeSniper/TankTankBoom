@@ -123,9 +123,9 @@ MonoBehaviour:
   ammo: 500
   unitInfo:
     team: 0
-    attack: 10
-    defense: 10
-    support: 10
+    attack: 5
+    defense: 5
+    support: 5
     versatillity: 0
     ralley: 0
     shield: 0
