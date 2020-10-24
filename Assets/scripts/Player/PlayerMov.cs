@@ -54,11 +54,11 @@ public class PlayerMov : MonoBehaviour
         if(player.unitInfo.timeLeftUntilHeal <= 0)
         {
             player.unitInfo.timeLeftUntilHeal = 0;
-            player.unitInfo.HP += player.unitInfo.support;
+            player.unitInfo.HP += (int)player.unitInfo.support;
         }
         if(player.unitInfo.HP > player.unitInfo.defense)
         {
-            player.unitInfo.HP = player.unitInfo.defense;
+            player.unitInfo.HP = (int)player.unitInfo.defense;
         }
     }
 
@@ -66,8 +66,8 @@ public class PlayerMov : MonoBehaviour
     {
         float x;
         float y;
-        y = Mathf.Sin(angle) / magnitude;
-        x = Mathf.Cos(angle) / magnitude;
+        y = Mathf.Sin(angle) * magnitude;
+        x = Mathf.Cos(angle) * magnitude;
         return new Vector2(x, y);
     }
 }

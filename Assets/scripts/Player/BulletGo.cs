@@ -41,7 +41,7 @@ public class BulletGo : MonoBehaviour
     private void Shoot()
     {
         GameObject boolet = Instantiate(bullet, fp.position, fp.rotation);
-        boolet.GetComponent<bulletInteract>().damage = unitInfo.attack;
+        boolet.GetComponent<bulletInteract>().damage = (int)unitInfo.attack;
         Rigidbody2D rb = boolet.GetComponent<Rigidbody2D>();
         rb.AddForce(fp.up * bulletforce, ForceMode2D.Impulse);
         ammo -= 1;
