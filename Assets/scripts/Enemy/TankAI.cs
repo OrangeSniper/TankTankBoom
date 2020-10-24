@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class TankAI : MonoBehaviour
 {
+    public Teams teams;
     public GameObject target;
 
     public float nextWaypointDistance = 3f;
 
     public Transform enemyGFX;
 
-    public Unit unitInfo;
 
     private Path path;
     private int currentWayPoint = 0;
@@ -41,6 +41,8 @@ public class TankAI : MonoBehaviour
 
     public bool isFiring = false;
 
+    public Unit unitinfo;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -49,12 +51,49 @@ public class TankAI : MonoBehaviour
 
         InvokeRepeating("UpdatePath", 0f, .5f);
         source = GetComponent<AudioSource>();
+        unitinfo.InitStats();
+        target = NearTarg(unitinfo.team);
+
     }
 
-    private void Update()
+    public void Update()
     {
+        target = NearTarg(unitinfo.team);
         dist = Vector2.Distance(transform.position, target.transform.position);
         targetInRange = dist <= seekDis;
+        unitinfo.UpdateStats();
+    }
+
+    public GameObject NearTarg(tankTeam team)
+    {
+        GameObject currentClosest = null;
+        if(team == tankTeam.red)
+        {
+            for(int i = 0; i < teams.blue.Length; i++)
+            {
+                if (i == 0)
+                {
+                    currentClosest = teams.blue[i];
+                }else if (Vector2.Distance(teams.blue[i].transform.position, transform.position) < Vector2.Distance(teams.blue[i-1].transform.position, transform.position))
+                {
+                    currentClosest = teams.blue[i];
+                }
+            }
+        }
+        if (team == tankTeam.blue)
+        {
+            for (int i = 0; i < teams.red.Length; i++)
+            {
+                if (i == 0)
+                {
+                    currentClosest = teams.red[i];
+                }else if (Vector2.Distance(teams.red[i].transform.position, transform.position) < Vector2.Distance(teams.red[i-1].transform.position, transform.position))
+                {
+                    currentClosest = teams.red[i];
+                }
+            }
+        }
+        return currentClosest;
     }
 
     private void UpdatePath()
@@ -129,7 +168,7 @@ public class TankAI : MonoBehaviour
         }
 
         Vector2 direction = ((Vector2)path.vectorPath[currentWayPoint] - rb.position).normalized;
-        Vector2 force = direction * unitInfo.speed * Time.fixedDeltaTime;
+        Vector2 force = direction * unitinfo.speed * Time.deltaTime * 10;
         Vector2 dir = (rb.position - (Vector2)path.vectorPath[currentWayPoint]);
         Vector2 dir2 = (rb.position - (Vector2)target.transform.position);
 
@@ -137,7 +176,7 @@ public class TankAI : MonoBehaviour
 
         if (dist > firingRadius)
         {
-            rb.AddForce(force);
+            rb.MovePosition(force + rb.position);
         }
         else
         {
@@ -160,7 +199,7 @@ public class TankAI : MonoBehaviour
 
     private IEnumerator fire()
     {
-        shoot.Fire();
+        shoot.Fire(unitinfo.attack, unitinfo.team);
         isFiring = true;
 
         yield return new WaitForSeconds(fireSPD);

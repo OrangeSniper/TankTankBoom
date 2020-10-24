@@ -130,8 +130,9 @@ MonoBehaviour:
     ralley: 0
     shield: 0
     HP: 100
+    fullHP: 0
     speed: 5
-    timeUntilHeal: 100
+    timeUntilHeal: 1000
     timeLeftUntilHeal: 0
 --- !u!1 &6583523473612954705
 GameObject:

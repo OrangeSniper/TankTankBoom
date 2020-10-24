@@ -18,6 +18,7 @@ public class Unit
     public int shield; //how much all players get as an added sheild on their HP. uses the heighest players.
 
     public int HP;
+    public int fullHP;
 
     public float speed;
 
@@ -32,7 +33,8 @@ public class Unit
 
     public void InitStats()
     {
-        HP = (int)defense;
+        fullHP = (int)defense * 5;
+        HP = fullHP;
     }
 
     public void UpdateStats()
@@ -40,6 +42,19 @@ public class Unit
         versatillity = (attack + defense) / 2;
         ralley = (int)(attack + support) / 2;
         shield = (int)(defense + support) / 2;
-        speed = versatillity / 30;
+        speed = versatillity / 20;
+
+        fullHP = (int)defense * 5;
+        timeLeftUntilHeal -= 1;
+
+        if (timeLeftUntilHeal <= 0)
+        {
+            timeLeftUntilHeal = 0;
+            HP += (int)support;
+        }
+        if (HP > fullHP)
+        {
+            HP = (int)fullHP;
+        }
     }
 }

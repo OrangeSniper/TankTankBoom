@@ -42,7 +42,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61d70de3406d0134f90cdc297add80cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 5797510954974080059, guid: 49765ca1087e67b409529ac212ae140d, type: 3}
+  bullet: {fileID: 2869448005640349694, guid: a1a4c845c1c1e5444b29a9caf47f6506, type: 3}
   firePoint: {fileID: 1261239425859574429}
 --- !u!114 &4069103575554454826
 MonoBehaviour:
@@ -59,10 +59,6 @@ MonoBehaviour:
   target: {fileID: 0}
   nextWaypointDistance: 3
   enemyGFX: {fileID: 0}
-  unitInfo:
-    team: 1
-    HP: 5
-    speed: 200
   dist: 0
   seekDis: 20
   rotationSPD: 10
@@ -72,10 +68,23 @@ MonoBehaviour:
   seek: 0
   sourcePlayed: 0
   shoot: {fileID: 130800066001847751}
-  fireSPD: 10
+  fireSPD: 1
   radius: 20
   firingRadius: 10
   isFiring: 0
+  unitinfo:
+    team: 1
+    attack: 5
+    defense: 5
+    support: 5
+    versatillity: 0
+    ralley: 0
+    shield: 0
+    HP: 0
+    fullHP: 0
+    speed: 0
+    timeUntilHeal: 1000
+    timeLeftUntilHeal: 0
 --- !u!1001 &3562786249490111376
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -108,6 +117,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9133037843396835541, guid: abf6efc31b685484195a191b2cb3f41d,
+        type: 3}
+      propertyPath: ai
+      value: 
+      objectReference: {fileID: 4069103575554454826}
     - target: {fileID: 9133037843396835547, guid: abf6efc31b685484195a191b2cb3f41d,
         type: 3}
       propertyPath: m_LocalPosition.x

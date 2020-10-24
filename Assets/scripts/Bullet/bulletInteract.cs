@@ -4,21 +4,35 @@ public class bulletInteract : MonoBehaviour
 {
     public GameObject hitEffect;
 
+    public tankTeam team;
+
     public int damage;
 
-    private PlayerMov player;
+    
 
     private void Start()
     {
-        player = GameObject.Find("Player").GetComponent<PlayerMov>();
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-        if (collision.collider.CompareTag("enemy"))
+        if(collision.collider.GetComponent<TankAI>() != null)
         {
-            collision.collider.GetComponent<EnemyHP>().Damage(damage);
+            if (collision.collider.GetComponent<TankAI>().unitinfo.team != team)
+            {
+                collision.collider.GetComponent<EnemyHP>().Damage(damage);
+                collision.collider.GetComponent<TankAI>().unitinfo.timeLeftUntilHeal = collision.collider.GetComponent<TankAI>().unitinfo.timeUntilHeal;
+            }
+        }
+        if(collision.collider.GetComponent<BulletGo>() != null)
+        {
+            if (collision.collider.GetComponent<BulletGo>().unitInfo.team != team)
+            {
+                collision.collider.GetComponent<BulletGo>().unitInfo.HP -= damage;
+                collision.collider.GetComponent<BulletGo>().unitInfo.timeLeftUntilHeal = collision.collider.GetComponent<BulletGo>().unitInfo.timeUntilHeal;
+            }
         }
         Destroy(effect, 5f);
         Destroy(gameObject);

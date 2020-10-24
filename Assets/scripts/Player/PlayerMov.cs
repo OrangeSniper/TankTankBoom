@@ -47,18 +47,6 @@ public class PlayerMov : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0))
         {
             rb.MovePosition(move + rb.position);
-            Debug.Log(move);
-        }
-        player.unitInfo.timeLeftUntilHeal -= 1;
-
-        if(player.unitInfo.timeLeftUntilHeal <= 0)
-        {
-            player.unitInfo.timeLeftUntilHeal = 0;
-            player.unitInfo.HP += (int)player.unitInfo.support;
-        }
-        if(player.unitInfo.HP > player.unitInfo.defense)
-        {
-            player.unitInfo.HP = (int)player.unitInfo.defense;
         }
     }
 
