@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using Cinemachine;
 
 public class BulletGo : MonoBehaviour
 {
