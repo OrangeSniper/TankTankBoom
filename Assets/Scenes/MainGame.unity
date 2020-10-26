@@ -31550,60 +31550,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3854396664834019480, guid: 7b397b78d3ae26442b759186ed2daa0b,
-        type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3854396664834019480, guid: 7b397b78d3ae26442b759186ed2daa0b,
-        type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.data[0]
-      value: -1292027447
-      objectReference: {fileID: 0}
-    - target: {fileID: 3854396664834019480, guid: 7b397b78d3ae26442b759186ed2daa0b,
-        type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.data[1]
-      value: -864648907
-      objectReference: {fileID: 0}
-    - target: {fileID: 3854396664834019480, guid: 7b397b78d3ae26442b759186ed2daa0b,
-        type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.data[2]
-      value: -1887834807
-      objectReference: {fileID: 0}
-    - target: {fileID: 3854396664834019480, guid: 7b397b78d3ae26442b759186ed2daa0b,
-        type: 3}
-      propertyPath: m_Intensity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3854396664834019480, guid: 7b397b78d3ae26442b759186ed2daa0b,
-        type: 3}
-      propertyPath: m_PointLightOuterAngle
-      value: 88
-      objectReference: {fileID: 0}
-    - target: {fileID: 3854396664834019480, guid: 7b397b78d3ae26442b759186ed2daa0b,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3854396664834019480, guid: 7b397b78d3ae26442b759186ed2daa0b,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.9976346
-      objectReference: {fileID: 0}
-    - target: {fileID: 3854396664834019480, guid: 7b397b78d3ae26442b759186ed2daa0b,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.7971698
-      objectReference: {fileID: 0}
     - target: {fileID: 6583523473403741123, guid: 7b397b78d3ae26442b759186ed2daa0b,
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6583523473403741123, guid: 7b397b78d3ae26442b759186ed2daa0b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6583523473403741125, guid: 7b397b78d3ae26442b759186ed2daa0b,
         type: 3}
@@ -31665,46 +31615,6 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 6583523473403741129, guid: 7b397b78d3ae26442b759186ed2daa0b,
-        type: 3}
-      propertyPath: cameras.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6583523473403741129, guid: 7b397b78d3ae26442b759186ed2daa0b,
-        type: 3}
-      propertyPath: unitInfo.support
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6583523473403741129, guid: 7b397b78d3ae26442b759186ed2daa0b,
-        type: 3}
-      propertyPath: unitInfo.defense
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6583523473403741129, guid: 7b397b78d3ae26442b759186ed2daa0b,
-        type: 3}
-      propertyPath: unitInfo.attack
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6583523473403741129, guid: 7b397b78d3ae26442b759186ed2daa0b,
-        type: 3}
-      propertyPath: shootTime
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6583523473403741129, guid: 7b397b78d3ae26442b759186ed2daa0b,
-        type: 3}
-      propertyPath: unitInfo.timeUntilHeal
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 6583523473403741129, guid: 7b397b78d3ae26442b759186ed2daa0b,
-        type: 3}
-      propertyPath: cameras.Array.data[0]
-      value: 
-      objectReference: {fileID: 1421677904}
-    - target: {fileID: 6583523473403741129, guid: 7b397b78d3ae26442b759186ed2daa0b,
-        type: 3}
-      propertyPath: cameras.Array.data[1]
-      value: 
-      objectReference: {fileID: 1076124110}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b397b78d3ae26442b759186ed2daa0b, type: 3}
 --- !u!1001 &7230733394345285983
