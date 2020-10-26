@@ -4865,7 +4865,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.7
+  m_Intensity: 0.3
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: c939fdb2358176cc0000000049ed798f
   m_LightCookieSprite: {fileID: 0}
@@ -31457,6 +31457,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3839047338112298947, guid: 22ae9814b3b6bf54bbce0b8b93ac360d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3839047338599537569, guid: 22ae9814b3b6bf54bbce0b8b93ac360d,
         type: 3}
       propertyPath: player
@@ -31545,6 +31550,51 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3854396664834019480, guid: 7b397b78d3ae26442b759186ed2daa0b,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3854396664834019480, guid: 7b397b78d3ae26442b759186ed2daa0b,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[0]
+      value: -1292027447
+      objectReference: {fileID: 0}
+    - target: {fileID: 3854396664834019480, guid: 7b397b78d3ae26442b759186ed2daa0b,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[1]
+      value: -864648907
+      objectReference: {fileID: 0}
+    - target: {fileID: 3854396664834019480, guid: 7b397b78d3ae26442b759186ed2daa0b,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[2]
+      value: -1887834807
+      objectReference: {fileID: 0}
+    - target: {fileID: 3854396664834019480, guid: 7b397b78d3ae26442b759186ed2daa0b,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3854396664834019480, guid: 7b397b78d3ae26442b759186ed2daa0b,
+        type: 3}
+      propertyPath: m_PointLightOuterAngle
+      value: 88
+      objectReference: {fileID: 0}
+    - target: {fileID: 3854396664834019480, guid: 7b397b78d3ae26442b759186ed2daa0b,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3854396664834019480, guid: 7b397b78d3ae26442b759186ed2daa0b,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.9976346
+      objectReference: {fileID: 0}
+    - target: {fileID: 3854396664834019480, guid: 7b397b78d3ae26442b759186ed2daa0b,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.7971698
+      objectReference: {fileID: 0}
     - target: {fileID: 6583523473403741123, guid: 7b397b78d3ae26442b759186ed2daa0b,
         type: 3}
       propertyPath: m_Name
