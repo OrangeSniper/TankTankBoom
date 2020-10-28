@@ -5,7 +5,6 @@ public class EnemyAI : MonoBehaviour
 {
     public GameObject target;
 
-    public float speed = 200f;
     public float nextWaypointDistance = 3f;
 
     public Transform enemyGFX;
@@ -32,6 +31,8 @@ public class EnemyAI : MonoBehaviour
 
     public float radius = 20f;
 
+    public TankAI tankai;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -52,7 +53,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (seeker.IsDone())
         {
-            if (targetInRange || target == null)
+            if (targetInRange || target != null)
             {
                 if (reachedEnd)
                 {
