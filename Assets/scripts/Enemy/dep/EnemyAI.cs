@@ -41,6 +41,7 @@ public class EnemyAI : MonoBehaviour
 
         InvokeRepeating("UpdatePath", 0f, .5f);
         source = GetComponent<AudioSource>();
+        tankai = GetComponent<TankAI>();
     }
 
     private void Update()
@@ -53,7 +54,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (seeker.IsDone())
         {
-            if (targetInRange || target != null)
+            if (targetInRange)
             {
                 if (reachedEnd)
                 {
@@ -66,15 +67,6 @@ public class EnemyAI : MonoBehaviour
                     sourcePlayed = true;
                 }
             }
-            else if (nullifier == false)
-            {
-                seeker.StartPath(rb.position, PickRandomPoint(), OnPathComplete);
-                nullifier = true;
-            }
-            if (reachedEnd)
-            {
-                nullifier = false;
-            }
             if (!targetInRange)
             {
                 sourcePlayed = false;
@@ -82,12 +74,6 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    private Vector2 PickRandomPoint()
-    {
-        var point = UnityEngine.Random.insideUnitCircle * radius;
-        point += rb.position;
-        return point;
-    }
 
     private void OnPathComplete(Path p)
     {
@@ -121,7 +107,7 @@ public class EnemyAI : MonoBehaviour
         }
 
         Vector2 direction = ((Vector2)path.vectorPath[currentWayPoint] - rb.position).normalized;
-        Vector2 force = direction * speed * Time.deltaTime;
+        Vector2 force = direction * tankai.unitinfo.speed * Time.deltaTime;
         Vector2 dir = rb.position - (Vector2)path.vectorPath[currentWayPoint];
 
         rb.AddForce(force);

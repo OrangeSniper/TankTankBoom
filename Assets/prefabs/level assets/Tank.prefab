@@ -103,7 +103,6 @@ MonoBehaviour:
   nextWaypointDistance: 3
   enemyGFX: {fileID: 0}
   dist: 0
-  seekDis: 20
   rotationSPD: 10
   targetInRange: 0
   nullifier: 0
@@ -165,6 +164,11 @@ PrefabInstance:
       propertyPath: ai
       value: 
       objectReference: {fileID: 4069103575554454826}
+    - target: {fileID: 9133037843396835546, guid: abf6efc31b685484195a191b2cb3f41d,
+        type: 3}
+      propertyPath: detailedGizmos
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9133037843396835547, guid: abf6efc31b685484195a191b2cb3f41d,
         type: 3}
       propertyPath: m_LocalPosition.x
