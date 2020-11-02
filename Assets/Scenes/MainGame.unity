@@ -31166,19 +31166,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4069103575554454826, guid: 552d962cbcb63ac42850ba4bb80dcbf1,
         type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4069103575554454826, guid: 552d962cbcb63ac42850ba4bb80dcbf1,
-        type: 3}
       propertyPath: teams
       value: 
       objectReference: {fileID: 1679246645}
-    - target: {fileID: 4069103575554454826, guid: 552d962cbcb63ac42850ba4bb80dcbf1,
-        type: 3}
-      propertyPath: firingRadius
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 5750708253963002699, guid: 552d962cbcb63ac42850ba4bb80dcbf1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -31470,17 +31460,17 @@ PrefabInstance:
     - target: {fileID: 3839047338112298812, guid: 22ae9814b3b6bf54bbce0b8b93ac360d,
         type: 3}
       propertyPath: orthographic size
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3839047338112298947, guid: 22ae9814b3b6bf54bbce0b8b93ac360d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.569407
+      value: -1.4363499
       objectReference: {fileID: 0}
     - target: {fileID: 3839047338112298947, guid: 22ae9814b3b6bf54bbce0b8b93ac360d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 28.292177
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3839047338599537569, guid: 22ae9814b3b6bf54bbce0b8b93ac360d,
         type: 3}

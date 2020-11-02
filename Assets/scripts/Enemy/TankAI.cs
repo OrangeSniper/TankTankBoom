@@ -47,7 +47,7 @@ public class TankAI : MonoBehaviour
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
-        InvokeRepeating(nameof(UpdatePath), 0f, .5f);
+        InvokeRepeating(nameof(UpdatePath), 0f, .2f);
         unitinfo.InitStats();
     }
 

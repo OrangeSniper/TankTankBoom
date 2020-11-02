@@ -111,7 +111,7 @@ MonoBehaviour:
   sourcePlayed: 0
   shoot: {fileID: 130800066001847751}
   fireSPD: 1
-  radius: 20
+  radius: 100
   firingRadius: 10
   isFiring: 0
   unitinfo:
