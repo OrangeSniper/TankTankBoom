@@ -127,6 +127,18 @@ MonoBehaviour:
     speed: 0
     timeUntilHeal: 1000
     timeLeftUntilHeal: 0
+--- !u!114 &6367942914303532680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5750708253963002703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdabac8ef0311274a847833afcd20b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3562786249490111376
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -228,6 +240,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tank
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133037843396835551, guid: abf6efc31b685484195a191b2cb3f41d,
+        type: 3}
+      propertyPath: m_TagString
+      value: enemy
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1653783772, guid: abf6efc31b685484195a191b2cb3f41d, type: 3}

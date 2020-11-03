@@ -19,13 +19,4 @@ public class EnemyHP : MonoBehaviour
     {
         ai.unitinfo.HP -= damage;
     }
-
-    private IEnumerator OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Player"))
-        {
-            collision.collider.GetComponent<BulletGo>().unitInfo.Damage((int)ai.unitinfo.attack);
-            yield return new WaitForSeconds(wait);
-        }
-    }
 }

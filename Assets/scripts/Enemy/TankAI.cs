@@ -40,19 +40,24 @@ public class TankAI : MonoBehaviour
 
     public Unit unitinfo;
 
+    private void Awake()
+    {
+        seeker = GetComponent<Seeker>();
+        rb = GetComponent<Rigidbody2D>();
+    }
+
     // Start is called before the first frame update
     private void Start()
     {
         target = NearTarg(unitinfo.team);
-        seeker = GetComponent<Seeker>();
-        rb = GetComponent<Rigidbody2D>();
 
-        InvokeRepeating(nameof(UpdatePath), 0f, .2f);
+        InvokeRepeating(nameof(UpdatePath), 0f, .5f);
         unitinfo.InitStats();
     }
 
     public void Update()
     {
+        target = NearTarg(unitinfo.team);
         dist = Vector2.Distance(transform.position, target.transform.position);
         unitinfo.UpdateStats();
     }
@@ -94,13 +99,12 @@ public class TankAI : MonoBehaviour
                 }
             }
         }
-        Debug.Log(gameObject.name + ", " + currentClosest.name);
+
         return currentClosest;
     }
 
     private void UpdatePath()
     {
-        target = NearTarg(unitinfo.team);
         if (seeker.IsDone())
         {
             seeker.StartPath(rb.position, target.transform.position, OnPathComplete);
